@@ -44,7 +44,7 @@ test.describe('Google Search', function() {
     return driver.get('http://www.ya.ru')
         .then(_ => driver.findElement(By.id('text')).sendKeys('webdriver'))
         .then(_ => driver.findElement(By.xpath("//div[@class='search2__button']/button")).click())
-        .then(_ => driver.wait(until.titleContains('webdriver'), 1000));
+        .then(_ => driver.wait(until.titleContains('webdriver'), 10000));
   });
 
   // Or you can define the test as a generator function. The test will wait for
@@ -54,7 +54,7 @@ test.describe('Google Search', function() {
     yield driver.get('http://www.ya.ru');
     yield driver.findElement(By.id('text')).sendKeys('webdriver');
     yield driver.findElement(By.xpath("//div[@class='search2__button']/button")).click();
-    yield driver.wait(until.titleContains('webdriver'), 1000);
+    yield driver.wait(until.titleContains('webdriver'), 10000);
   });
 
   test.after(() => driver.quit());
