@@ -1,15 +1,17 @@
 #!/usr/bin/env ruby
 
 require "selenium-webdriver"
+require 'pp'
 
-#Selenium::WebDriver::Firefox.path = "/Applications/Firefox\ 2.app/Contents/MacOS/firefox"
+#Selenium::WebDriver::Firefox.path = "/Applications/FirefoxESR.app/Contents/MacOS/firefox"
 #driver = Selenium::WebDriver.for(:remote, :url => "http://localhost:4444/wd/hub", :desired_capabilities => :firefox)
-
 driver = Selenium::WebDriver.for :firefox
 driver.manage.timeouts.implicit_wait = 5 # seconds
 wait = Selenium::WebDriver::Wait.new(:timeout => 5) # seconds
 
 begin
+	puts PP.pp(driver.capabilities)	
+
 	driver.navigate.to "http://10.10.15.109/litecart/admin/"
 
 	element = driver.find_element(:name, 'username')
@@ -23,6 +25,7 @@ begin
 
 	element = driver.find_element(:xpath, "//span[.='Catalog']")
 	element.click
+		element.click
 
 	wait.until { driver.find_element(:xpath, "//h1[contains(text(),'Catalog')]") }
 
