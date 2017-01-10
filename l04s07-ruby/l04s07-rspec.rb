@@ -11,9 +11,8 @@ describe 'litecart apps checker' do
 
   it 'should iterate apps and check page header' do
 
-    #@driver.navigate.to "http://10.10.15.109/litecart/admin/"
-    @driver.navigate.to "http://localhost/litecart/admin/"
     @driver.navigate.to "http://10.10.15.109/litecart/admin/"
+    #@driver.navigate.to "http://localhost/litecart/admin/"
 
     @driver.find_element(:name, 'username').send_keys "admin"
     @driver.find_element(:name, 'password').send_keys "admin"
