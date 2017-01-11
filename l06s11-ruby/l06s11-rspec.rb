@@ -9,7 +9,6 @@ describe 'litecart admin' do
   end
 
   it 'should login' do
-    puts Time.now.to_i
 
     userName = "test#{Time.now.to_i}@mail.to"
     userPass = "1234567890"
@@ -40,7 +39,7 @@ describe 'litecart admin' do
   end
 
   after(:each) do
-    sleep (5)
+    #sleep (5)
     @driver.quit
   end
 end
