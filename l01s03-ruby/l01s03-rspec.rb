@@ -9,8 +9,8 @@ describe 'litecart admin' do
     #Selenium::WebDriver::Firefox::Binary.path = "/Applications/FirefoxNightly.app/Contents/MacOS/firefox"
 
 
-    @driver = Selenium::WebDriver.for(:firefox, :desired_capabilities => caps)
-
+    #@driver = Selenium::WebDriver.for(:firefox, :desired_capabilities => caps)
+    @driver = Selenium::WebDriver.for(:remote, :url => "http://10.0.20.2:4444/wd/hub", :desired_capabilities => :firefox)
     #@driver = Selenium::WebDriver.for(:firefox)
     @driver.manage.timeouts.implicit_wait = 5 # seconds
 
